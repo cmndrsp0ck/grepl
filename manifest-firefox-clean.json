@@ -1,19 +1,17 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 2,
   "name": "GrepFox",
   "version": "1.0",
   "description": "Advanced page search with regex support and highlighting",
   
   "permissions": [
     "activeTab",
-    "storage"
-  ],
-  
-  "host_permissions": [
+    "tabs",
+    "storage",
     "<all_urls>"
   ],
   
-  "action": {
+  "browser_action": {
     "default_title": "GrepFox Search",
     "default_icon": {
       "16": "icon16.png",
@@ -32,8 +30,7 @@
   ],
   
   "background": {
-    "service_worker": "background.js",
-    "type": "module"
+    "scripts": ["browser-polyfill.js", "background-firefox.js"]
   },
   
   "commands": {
@@ -46,9 +43,9 @@
   },
   
   "web_accessible_resources": [
-    {
-      "resources": ["popup.html", "popup.js", "popup.css", "browser-polyfill.js"],
-      "matches": ["<all_urls>"]
-    }
+    "popup.html",
+    "popup.js", 
+    "popup.css",
+    "browser-polyfill.js"
   ]
 }

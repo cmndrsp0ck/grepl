@@ -1,5 +1,5 @@
-// Service worker for GrepFox extension (Chrome compatible)
-importScripts('browser-polyfill.js');
+// Background script for GrepFox extension (Firefox compatible)
+// Note: browser-polyfill.js is loaded via manifest for Firefox
 
 // Handle keyboard shortcuts
 browser.commands.onCommand.addListener(async (command) => {
@@ -43,7 +43,7 @@ browser.runtime.onInstalled.addListener((details) => {
 
 // Handle tab updates to ensure content script is ready
 browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-  if (changeInfo.status === 'complete' && tab.url && !tab.url.startsWith('chrome://')) {
+  if (changeInfo.status === 'complete' && tab.url && !tab.url.startsWith('chrome://') && !tab.url.startsWith('moz-extension://')) {
     // Content script should be automatically injected via manifest
   }
 });
