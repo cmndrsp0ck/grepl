@@ -1,4 +1,4 @@
-class GrepFoxPopup {
+class greplPopup {
   constructor() {
     this.searchInput = document.getElementById('search-input');
     this.regexCheckbox = document.getElementById('regex-checkbox');
@@ -214,5 +214,5 @@ class GrepFoxPopup {
 
 // Initialize popup when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-  new GrepFoxPopup();
+  new greplPopup();
 });

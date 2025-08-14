@@ -1,0 +1,258 @@
+body {
+  width: 320px;
+  min-height: 200px;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  background: #ffffff;
+}
+
+#grepfox-container {
+  padding: 16px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 8px;
+}
+
+.header h3 {
+  margin: 0;
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+#detach-btn {
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #666;
+}
+
+#detach-btn:hover {
+  background: #f5f5f5;
+  border-color: #999;
+}
+
+.search-section {
+  margin-bottom: 16px;
+}
+
+.search-input-container {
+  position: relative;
+  margin-bottom: 12px;
+}
+
+#search-input {
+  width: 100%;
+  padding: 8px 32px 8px 12px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+#search-input:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+#clear-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #999;
+  cursor: pointer;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#clear-btn:hover {
+  color: #666;
+  background: #f0f0f0;
+  border-radius: 50%;
+}
+
+.options {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 13px;
+  color: #555;
+}
+
+.checkbox-container input[type="checkbox"] {
+  margin-right: 8px;
+  transform: scale(1.1);
+}
+
+.navigation-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+}
+
+.match-info {
+  font-size: 13px;
+  color: #666;
+  font-weight: 500;
+}
+
+.nav-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.nav-controls button {
+  background: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.nav-controls button:hover:not(:disabled) {
+  background: #357abd;
+}
+
+.nav-controls button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.help-section {
+  border-top: 1px solid #e0e0e0;
+  padding-top: 12px;
+}
+
+.help-section details {
+  font-size: 12px;
+}
+
+.help-section summary {
+  cursor: pointer;
+  color: #666;
+  font-weight: 500;
+  padding: 4px 0;
+}
+
+.help-section summary:hover {
+  color: #333;
+}
+
+.help-content {
+  padding: 8px 0;
+  color: #555;
+  line-height: 1.4;
+}
+
+.help-content ul {
+  margin: 4px 0;
+  padding-left: 16px;
+}
+
+.help-content li {
+  margin: 2px 0;
+}
+
+.help-content kbd {
+  background: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 1px 4px;
+  font-size: 11px;
+  font-family: monospace;
+}
+
+.help-content code {
+  background: #f8f8f8;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  padding: 1px 4px;
+  font-family: monospace;
+  font-size: 11px;
+}
+
+/* Detached window styles */
+.detached-window {
+  position: fixed;
+  top: 100px;
+  right: 100px;
+  z-index: 10000;
+  background: white;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  resize: both;
+  overflow: hidden;
+  min-width: 320px;
+  min-height: 200px;
+}
+
+.detached-window .header {
+  background: #f8f9fa;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 8px 16px;
+  cursor: move;
+}
+
+.window-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.window-controls button {
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 2px 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.close-btn {
+  background: #ff5f56 !important;
+  color: white !important;
+  border: none !important;
+}
+
+.minimize-btn {
+  background: #ffbd2e !important;
+  color: white !important;
+  border: none !important;
+}

@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "GrepFox",
+  "name": "grepl",
   "version": "1.0",
   "description": "Advanced page search with regex support and highlighting",
   
@@ -12,7 +12,7 @@
   ],
   
   "browser_action": {
-    "default_title": "GrepFox Search",
+    "default_title": "grepl Search",
     "default_icon": {
       "16": "icon16.png",
       "48": "icon48.png",
@@ -23,15 +23,13 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["browser-polyfill.js", "content.js"],
-      "css": ["content.css"],
-      "run_at": "document_end"
+      "js": ["content.js"],
+      "css": ["content.css"]
     }
   ],
   
   "background": {
-    "scripts": ["browser-polyfill.js", "background-firefox.js"],
-    "persistent": false
+    "scripts": ["background-firefox.js"]
   },
   
   "commands": {
@@ -39,14 +37,7 @@
       "suggested_key": {
         "default": "Ctrl+Shift+F"
       },
-      "description": "Toggle GrepFox search"
+      "description": "Toggle grepl search"
     }
-  },
-  
-  "web_accessible_resources": [
-    "popup.html",
-    "popup.js",
-    "popup.css",
-    "browser-polyfill.js"
-  ]
+  }
 }

@@ -1,12 +1,14 @@
 {
   "manifest_version": 3,
-  "name": "GrepFox",
+  "name": "grepl",
   "version": "1.0",
   "description": "Advanced page search with regex support and highlighting",
   
   "permissions": [
     "activeTab",
-    "storage"
+    "tabs",
+    "storage",
+    "scripting"
   ],
   
   "host_permissions": [
@@ -14,7 +16,7 @@
   ],
   
   "action": {
-    "default_title": "GrepFox Search",
+    "default_title": "grepl Search",
     "default_icon": {
       "16": "icon16.png",
       "48": "icon48.png",
@@ -25,15 +27,14 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["browser-polyfill.js", "content.js"],
+      "js": ["content-chrome.js"],
       "css": ["content.css"],
       "run_at": "document_end"
     }
   ],
   
   "background": {
-    "service_worker": "background.js",
-    "type": "module"
+    "service_worker": "background-chrome.js"
   },
   
   "commands": {
@@ -41,13 +42,13 @@
       "suggested_key": {
         "default": "Ctrl+Shift+F"
       },
-      "description": "Toggle GrepFox search"
+      "description": "Toggle grepl search"
     }
   },
   
   "web_accessible_resources": [
     {
-      "resources": ["popup.html", "popup.js", "popup.css", "browser-polyfill.js"],
+      "resources": ["popup-chrome.html", "popup-chrome.js", "popup.css"],
       "matches": ["<all_urls>"]
     }
   ]
