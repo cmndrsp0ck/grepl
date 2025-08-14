@@ -2,12 +2,10 @@ class GrepFoxPopup {
   constructor() {
     this.searchInput = document.getElementById('search-input');
     this.regexCheckbox = document.getElementById('regex-checkbox');
-    this.keepOpenCheckbox = document.getElementById('keep-open-checkbox');
     this.matchCounter = document.getElementById('match-counter');
     this.prevBtn = document.getElementById('prev-btn');
     this.nextBtn = document.getElementById('next-btn');
     this.clearBtn = document.getElementById('clear-btn');
-    this.detachBtn = document.getElementById('detach-btn');
     
     this.currentMatchIndex = -1;
     this.totalMatches = 0;
@@ -42,26 +40,13 @@ class GrepFoxPopup {
       }
     });
     
-    // Keep open checkbox change
-    this.keepOpenCheckbox.addEventListener('change', () => {
-      this.savePreferences();
-    });
     
     // Navigation buttons
-    this.prevBtn.addEventListener('click', () => {
-      this.navigatePrevious();
-      this.handlePopupClose();
-    });
-    this.nextBtn.addEventListener('click', () => {
-      this.navigateNext();
-      this.handlePopupClose();
-    });
+    this.prevBtn.addEventListener('click', () => this.navigatePrevious());
+    this.nextBtn.addEventListener('click', () => this.navigateNext());
     
     // Clear button
     this.clearBtn.addEventListener('click', () => this.clearSearch());
-    
-    // Detach button
-    this.detachBtn.addEventListener('click', () => this.detachWindow());
     
     // Keyboard shortcuts
     this.searchInput.addEventListener('keydown', (e) => {
@@ -72,7 +57,6 @@ class GrepFoxPopup {
         } else {
           this.navigateNext();
         }
-        this.handlePopupClose();
       } else if (e.key === 'Escape') {
         this.clearSearch();
       }
@@ -184,58 +168,25 @@ class GrepFoxPopup {
     this.clearBtn.style.display = this.searchInput.value.trim() ? 'flex' : 'none';
   }
   
-  async detachWindow() {
-    if (this.isDetached) return;
-    
-    try {
-      const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
-      
-      // Create floating window in content script
-      await browser.tabs.sendMessage(tab.id, {
-        action: 'createFloatingWindow'
-      });
-      
-      this.isDetached = true;
-      
-      // Close popup
-      window.close();
-      
-    } catch (error) {
-      console.error('Failed to create floating window:', error);
-      this.showError('Failed to create floating window');
-    }
-  }
   
   
   savePreferences() {
     browser.storage.local.set({
-      regexMode: this.regexCheckbox.checked,
-      keepOpen: this.keepOpenCheckbox.checked
+      regexMode: this.regexCheckbox.checked
     });
   }
   
   async loadPreferences() {
     try {
-      const result = await browser.storage.local.get(['regexMode', 'keepOpen']);
+      const result = await browser.storage.local.get(['regexMode']);
       if (result.regexMode !== undefined) {
         this.regexCheckbox.checked = result.regexMode;
-      }
-      if (result.keepOpen !== undefined) {
-        this.keepOpenCheckbox.checked = result.keepOpen;
       }
     } catch (error) {
       console.error('Failed to load preferences:', error);
     }
   }
   
-  handlePopupClose() {
-    // Only close popup if "Keep Open" is not checked
-    if (!this.keepOpenCheckbox.checked) {
-      setTimeout(() => {
-        window.close();
-      }, 100); // Small delay to ensure navigation completes
-    }
-  }
   
   showError(message) {
     this.matchCounter.textContent = message;
