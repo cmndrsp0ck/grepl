@@ -34,7 +34,8 @@ browser.runtime.onInstalled.addListener((details) => {
   if (details.reason === 'install') {
     // Set default preferences
     browser.storage.local.set({
-      regexMode: false
+      regexMode: false,
+      caseSensitive: false
     });
   }
 });

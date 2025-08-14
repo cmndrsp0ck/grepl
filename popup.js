@@ -2,6 +2,7 @@ class GrepFoxPopup {
   constructor() {
     this.searchInput = document.getElementById('search-input');
     this.regexCheckbox = document.getElementById('regex-checkbox');
+    this.caseSensitiveCheckbox = document.getElementById('case-sensitive-checkbox');
     this.matchCounter = document.getElementById('match-counter');
     this.prevBtn = document.getElementById('prev-btn');
     this.nextBtn = document.getElementById('next-btn');
@@ -34,6 +35,14 @@ class GrepFoxPopup {
     
     // Regex checkbox change
     this.regexCheckbox.addEventListener('change', () => {
+      this.savePreferences();
+      if (this.searchInput.value.trim()) {
+        this.performSearch(this.searchInput.value);
+      }
+    });
+    
+    // Case sensitive checkbox change
+    this.caseSensitiveCheckbox.addEventListener('change', () => {
       this.savePreferences();
       if (this.searchInput.value.trim()) {
         this.performSearch(this.searchInput.value);
@@ -83,7 +92,8 @@ class GrepFoxPopup {
       const response = await browser.tabs.sendMessage(tab.id, {
         action: 'search',
         query: query,
-        isRegex: this.regexCheckbox.checked
+        isRegex: this.regexCheckbox.checked,
+        isCaseSensitive: this.caseSensitiveCheckbox.checked
       });
       
       this.totalMatches = response.matchCount;
@@ -172,15 +182,19 @@ class GrepFoxPopup {
   
   savePreferences() {
     browser.storage.local.set({
-      regexMode: this.regexCheckbox.checked
+      regexMode: this.regexCheckbox.checked,
+      caseSensitive: this.caseSensitiveCheckbox.checked
     });
   }
   
   async loadPreferences() {
     try {
-      const result = await browser.storage.local.get(['regexMode']);
+      const result = await browser.storage.local.get(['regexMode', 'caseSensitive']);
       if (result.regexMode !== undefined) {
         this.regexCheckbox.checked = result.regexMode;
+      }
+      if (result.caseSensitive !== undefined) {
+        this.caseSensitiveCheckbox.checked = result.caseSensitive;
       }
     } catch (error) {
       console.error('Failed to load preferences:', error);
