@@ -1,0 +1,248 @@
+.grepfox-highlight {
+  background-color: yellow !important;
+  color: black !important;
+  padding: 1px 2px !important;
+  border-radius: 2px !important;
+  box-shadow: 0 0 0 1px rgba(255, 255, 0, 0.5) !important;
+}
+
+.grepfox-highlight-active {
+  background-color: orange !important;
+  color: black !important;
+  box-shadow: 0 0 0 2px #ff6600 !important;
+  animation: grepfox-pulse 1s ease-in-out !important;
+}
+
+@keyframes grepfox-pulse {
+  0% { box-shadow: 0 0 0 2px #ff6600; }
+  50% { box-shadow: 0 0 0 4px #ff6600; }
+  100% { box-shadow: 0 0 0 2px #ff6600; }
+}
+
+/* Floating window styles */
+.grepfox-floating-window {
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  z-index: 2147483647 !important;
+  background: white !important;
+  border: 2px solid #ddd !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+  width: 320px !important;
+  min-height: 200px !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 14px !important;
+  resize: both !important;
+  overflow: hidden !important;
+}
+
+.grepfox-float-header {
+  background: #f8f9fa !important;
+  border-bottom: 1px solid #e0e0e0 !important;
+  padding: 8px 16px !important;
+  cursor: grab !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+.grepfox-float-header h3 {
+  margin: 0 !important;
+  color: #333 !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+}
+
+.grepfox-window-controls {
+  display: flex !important;
+  gap: 8px !important;
+}
+
+.grepfox-close-btn {
+  background: #ff5f56 !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 4px !important;
+  padding: 4px 8px !important;
+  cursor: pointer !important;
+  font-size: 14px !important;
+  font-weight: bold !important;
+}
+
+.grepfox-close-btn:hover {
+  background: #e04e46 !important;
+}
+
+.grepfox-float-content {
+  padding: 16px !important;
+}
+
+.grepfox-search-section {
+  margin-bottom: 16px !important;
+}
+
+.grepfox-search-input-container {
+  position: relative !important;
+  margin-bottom: 12px !important;
+}
+
+.grepfox-search-input {
+  width: 100% !important;
+  padding: 8px 32px 8px 12px !important;
+  border: 2px solid #ddd !important;
+  border-radius: 6px !important;
+  font-size: 14px !important;
+  box-sizing: border-box !important;
+  transition: border-color 0.2s !important;
+  background: white !important;
+  color: black !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  line-height: normal !important;
+  text-align: left !important;
+  text-decoration: none !important;
+  text-shadow: none !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  word-spacing: normal !important;
+}
+
+.grepfox-search-input:focus {
+  outline: none !important;
+  border-color: #4a90e2 !important;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1) !important;
+}
+
+.grepfox-clear-btn {
+  position: absolute !important;
+  right: 8px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  background: none !important;
+  border: none !important;
+  font-size: 18px !important;
+  color: #999 !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  width: 20px !important;
+  height: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.grepfox-clear-btn:hover {
+  color: #666 !important;
+  background: #f0f0f0 !important;
+  border-radius: 50% !important;
+}
+
+.grepfox-options {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  flex-wrap: wrap !important;
+}
+
+.grepfox-checkbox-container {
+  display: flex !important;
+  align-items: center !important;
+  cursor: pointer !important;
+  font-size: 13px !important;
+  color: #555 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  background: none !important;
+  text-shadow: none !important;
+  text-decoration: none !important;
+  font-weight: normal !important;
+}
+
+.grepfox-checkbox-container input[type="checkbox"] {
+  margin-right: 8px !important;
+  transform: scale(1.1) !important;
+  background: white !important;
+  border: 2px solid #ddd !important;
+  border-radius: 3px !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  width: 16px !important;
+  height: 16px !important;
+  position: relative !important;
+  cursor: pointer !important;
+}
+
+.grepfox-checkbox-container input[type="checkbox"]:checked {
+  background: #4a90e2 !important;
+  border-color: #4a90e2 !important;
+}
+
+.grepfox-checkbox-container input[type="checkbox"]:checked::after {
+  content: '✓' !important;
+  position: absolute !important;
+  top: -2px !important;
+  left: 2px !important;
+  color: white !important;
+  font-size: 12px !important;
+  font-weight: bold !important;
+  line-height: 1 !important;
+}
+
+.grepfox-navigation-section {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: 16px !important;
+  padding: 12px !important;
+  background: #f8f9fa !important;
+  border-radius: 6px !important;
+  border: 1px solid #e9ecef !important;
+}
+
+.grepfox-match-info {
+  font-size: 13px !important;
+  color: #666 !important;
+  font-weight: 500 !important;
+}
+
+.grepfox-nav-controls {
+  display: flex !important;
+  gap: 8px !important;
+}
+
+.grepfox-nav-controls button {
+  background: #4a90e2 !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 4px !important;
+  padding: 6px 12px !important;
+  cursor: pointer !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  transition: background-color 0.2s !important;
+}
+
+.grepfox-nav-controls button:hover:not(:disabled) {
+  background: #357abd !important;
+}
+
+.grepfox-nav-controls button:disabled {
+  background: #ccc !important;
+  cursor: not-allowed !important;
+}
+
+/* Force white background and black text for input fields */
+.grepfox-floating-window input[type="text"] {
+  background: white !important;
+  background-color: white !important;
+  color: black !important;
+  border: 2px solid #ddd !important;
+  outline: none !important;
+}
+
+.grepfox-floating-window input[type="text"]:focus {
+  background: white !important;
+  background-color: white !important;
+  color: black !important;
+  border-color: #4a90e2 !important;
+}

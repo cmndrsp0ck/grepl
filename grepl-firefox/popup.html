@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div id="grepfox-container">
+    <div class="header">
+      <h3>grepl Search</h3>
+    </div>
+    
+    <div class="search-section">
+      <div class="search-input-container">
+        <input type="text" id="search-input" placeholder="Enter search term..." autocomplete="off">
+        <button id="clear-btn" title="Clear search">×</button>
+      </div>
+      
+      <div class="options">
+        <label class="checkbox-container">
+          <input type="checkbox" id="regex-checkbox">
+          <span class="checkmark"></span>
+          Perl Regex (-P)
+        </label>
+        <label class="checkbox-container">
+          <input type="checkbox" id="case-sensitive-checkbox">
+          <span class="checkmark"></span>
+          Case Sensitive
+        </label>
+      </div>
+    </div>
+    
+    <div class="navigation-section">
+      <div class="match-info">
+        <span id="match-counter">0 matches</span>
+      </div>
+      
+      <div class="nav-controls">
+        <button id="prev-btn" title="Previous match (Shift+Enter)" disabled>↑</button>
+        <button id="next-btn" title="Next match (Enter)" disabled>↓</button>
+      </div>
+    </div>
+    
+    <div class="help-section">
+      <details>
+        <summary>Help & Shortcuts</summary>
+        <div class="help-content">
+          <p><strong>Shortcuts:</strong></p>
+          <ul>
+            <li><kbd>Enter</kbd> - Next match</li>
+            <li><kbd>Shift+Enter</kbd> - Previous match</li>
+            <li><kbd>Ctrl+Shift+F</kbd> - Toggle search</li>
+          </ul>
+          <p><strong>Notes:</strong></p>
+          <ul>
+            <li>Click the extension icon to open floating search window</li>
+            <li>Floating window can be dragged and stays open on the page</li>
+            <li>All search functions work in both popup and floating modes</li>
+          </ul>
+          <p><strong>Regex Examples:</strong></p>
+          <ul>
+            <li><code>\d+</code> - Match numbers</li>
+            <li><code>\b\w+@\w+\.\w+\b</code> - Match emails</li>
+            <li><code>https?://\S+</code> - Match URLs</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
