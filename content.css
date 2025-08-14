@@ -95,6 +95,16 @@
   font-size: 14px !important;
   box-sizing: border-box !important;
   transition: border-color 0.2s !important;
+  background: white !important;
+  color: black !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  line-height: normal !important;
+  text-align: left !important;
+  text-decoration: none !important;
+  text-shadow: none !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  word-spacing: normal !important;
 }
 
 .grepfox-search-input:focus {
@@ -138,11 +148,42 @@
   cursor: pointer !important;
   font-size: 13px !important;
   color: #555 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  background: none !important;
+  text-shadow: none !important;
+  text-decoration: none !important;
+  font-weight: normal !important;
 }
 
 .grepfox-checkbox-container input[type="checkbox"] {
   margin-right: 8px !important;
   transform: scale(1.1) !important;
+  background: white !important;
+  border: 2px solid #ddd !important;
+  border-radius: 3px !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  width: 16px !important;
+  height: 16px !important;
+  position: relative !important;
+  cursor: pointer !important;
+}
+
+.grepfox-checkbox-container input[type="checkbox"]:checked {
+  background: #4a90e2 !important;
+  border-color: #4a90e2 !important;
+}
+
+.grepfox-checkbox-container input[type="checkbox"]:checked::after {
+  content: '✓' !important;
+  position: absolute !important;
+  top: -2px !important;
+  left: 2px !important;
+  color: white !important;
+  font-size: 12px !important;
+  font-weight: bold !important;
+  line-height: 1 !important;
 }
 
 .grepfox-navigation-section {
@@ -186,4 +227,20 @@
 .grepfox-nav-controls button:disabled {
   background: #ccc !important;
   cursor: not-allowed !important;
+}
+
+/* Force white background and black text for input fields */
+.grepfox-floating-window input[type="text"] {
+  background: white !important;
+  background-color: white !important;
+  color: black !important;
+  border: 2px solid #ddd !important;
+  outline: none !important;
+}
+
+.grepfox-floating-window input[type="text"]:focus {
+  background: white !important;
+  background-color: white !important;
+  color: black !important;
+  border-color: #4a90e2 !important;
 }
