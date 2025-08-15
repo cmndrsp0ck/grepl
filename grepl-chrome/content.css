@@ -47,6 +47,19 @@
   align-items: center !important;
 }
 
+.grepfox-header-content {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.grepfox-header-icon {
+  width: 16px !important;
+  height: 16px !important;
+  display: block !important;
+  flex-shrink: 0 !important;
+}
+
 .grepfox-float-header h3 {
   margin: 0 !important;
   color: #333 !important;

@@ -220,7 +220,10 @@ class greplSearch {
     this.floatingWindow.className = 'grepfox-floating-window';
     this.floatingWindow.innerHTML = `
       <div class="grepfox-float-header">
-        <h3>grepl Search</h3>
+        <div class="grepfox-header-content">
+          <img src="${chrome.runtime.getURL('icon48.svg')}" alt="Grepl Icon" class="grepfox-header-icon">
+          <h3>Grepl Search</h3>
+        </div>
         <div class="grepfox-window-controls">
           <button class="grepfox-close-btn" title="Close">×</button>
         </div>

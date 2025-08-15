@@ -7,15 +7,18 @@
 <body>
   <div id="grepfox-container">
     <div class="header">
-      <h3>grepl Search</h3>
+      <div class="header-content">
+        <img src="icon16.png" alt="Grepl Icon" class="header-icon">
+        <h3>Grepl Search</h3>
+      </div>
     </div>
-    
+
     <div class="search-section">
       <div class="search-input-container">
         <input type="text" id="search-input" placeholder="Enter search term..." autocomplete="off">
         <button id="clear-btn" title="Clear search">×</button>
       </div>
-      
+
       <div class="options">
         <label class="checkbox-container">
           <input type="checkbox" id="regex-checkbox">
@@ -29,18 +32,18 @@
         </label>
       </div>
     </div>
-    
+
     <div class="navigation-section">
       <div class="match-info">
         <span id="match-counter">0 matches</span>
       </div>
-      
+
       <div class="nav-controls">
         <button id="prev-btn" title="Previous match (Shift+Enter)" disabled>↑</button>
         <button id="next-btn" title="Next match (Enter)" disabled>↓</button>
       </div>
     </div>
-    
+
     <div class="help-section">
       <details>
         <summary>Help & Shortcuts</summary>
@@ -67,7 +70,7 @@
       </details>
     </div>
   </div>
-  
+
   <script src="popup.js"></script>
 </body>
 </html>
