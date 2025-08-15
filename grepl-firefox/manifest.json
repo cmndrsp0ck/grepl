@@ -42,7 +42,7 @@
     }
   },
 
-  "web_accessible_resources": ["icon16.png", "icon48.svg"],
+  "web_accessible_resources": ["icon16.png", "icon48.png"],
 
   "browser_specific_settings": {
     "gecko": {

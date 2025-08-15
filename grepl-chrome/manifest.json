@@ -49,7 +49,7 @@
 
   "web_accessible_resources": [
     {
-      "resources": ["popup-chrome.html", "popup-chrome.js", "popup.css", "icon16.png", "icon48.svg"],
+      "resources": ["popup-chrome.html", "popup-chrome.js", "popup.css", "icon16.png", "icon48.png"],
       "matches": ["<all_urls>"]
     }
   ]

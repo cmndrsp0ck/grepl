@@ -221,7 +221,7 @@ class greplSearch {
     this.floatingWindow.innerHTML = `
       <div class="grepfox-float-header">
         <div class="grepfox-header-content">
-          <img src="${browser.runtime.getURL('icon48.svg')}" alt="Grepl Icon" class="grepfox-header-icon">
+          <img src="${browser.runtime.getURL('icon48.png')}" alt="Grepl Icon" class="grepfox-header-icon">
           <h3>Grepl Search</h3>
         </div>
         <div class="grepfox-window-controls">
