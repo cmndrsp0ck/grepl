@@ -218,17 +218,40 @@ class greplSearch {
     // Create floating window container
     this.floatingWindow = document.createElement('div');
     this.floatingWindow.className = 'grepfox-floating-window';
-    this.floatingWindow.innerHTML = `
-      <div class="grepfox-float-header">
-        <div class="grepfox-header-content">
-          <img src="${chrome.runtime.getURL('icon48.png')}" alt="Grepl Icon" class="grepfox-header-icon">
-          <h3>Grepl Search</h3>
-        </div>
-        <div class="grepfox-window-controls">
-          <button class="grepfox-close-btn" title="Close">×</button>
-        </div>
-      </div>
-      <div class="grepfox-float-content">
+    // Create the structure using DOM methods to avoid innerHTML security warnings
+    const header = document.createElement('div');
+    header.className = 'grepfox-float-header';
+    
+    const headerContent = document.createElement('div');
+    headerContent.className = 'grepfox-header-content';
+    
+    const icon = document.createElement('img');
+    icon.src = chrome.runtime.getURL('icon48.png');
+    icon.alt = 'Grepl Icon';
+    icon.className = 'grepfox-header-icon';
+    
+    const title = document.createElement('h3');
+    title.textContent = 'Grepl Search';
+    
+    headerContent.appendChild(icon);
+    headerContent.appendChild(title);
+    
+    const windowControls = document.createElement('div');
+    windowControls.className = 'grepfox-window-controls';
+    
+    const closeBtn = document.createElement('button');
+    closeBtn.className = 'grepfox-close-btn';
+    closeBtn.title = 'Close';
+    closeBtn.textContent = '×';
+    
+    windowControls.appendChild(closeBtn);
+    header.appendChild(headerContent);
+    header.appendChild(windowControls);
+    
+    // Create content area
+    const content = document.createElement('div');
+    content.className = 'grepfox-float-content';
+    content.innerHTML = `
         <div class="grepfox-search-section">
           <div class="grepfox-search-input-container">
             <input type="text" class="grepfox-search-input" placeholder="Enter search term..." autocomplete="off">
@@ -256,8 +279,10 @@ class greplSearch {
             <button class="grepfox-next-btn" title="Next match (Enter)" disabled>↓</button>
           </div>
         </div>
-      </div>
     `;
+    
+    this.floatingWindow.appendChild(header);
+    this.floatingWindow.appendChild(content);
 
     document.body.appendChild(this.floatingWindow);
     this.setupFloatingWindowEvents();
